@@ -3,13 +3,13 @@ import JsBarcode from "jsbarcode";
 import ProgressSlider from "./ProgressSlider";
 
 const About = () => {
-    const [ticketData, setTicketData] = useState({});
+  const [ticketData, setTicketData] = useState({});
 
-    useEffect(() => {
-      const data = JSON.parse(localStorage.getItem("ticketData")) || {};
-      setTicketData(data);
-    }, []);
-      const [barcode, setBarcode] = useState("");
+  useEffect(() => {
+    const data = JSON.parse(localStorage.getItem("ticketData")) || {};
+    setTicketData(data);
+  }, []);
+  const [barcode, setBarcode] = useState("");
 
   useEffect(() => {
     if (ticketData.email) {
@@ -34,9 +34,19 @@ const About = () => {
           <ProgressSlider page={page} totalPages={totalPages} />
         </div>
         <div className="container">
-          <div>
+          <div className="ticket-container">
+            <h1 className="ticket-title">Techember Fest "25</h1>
+            <p style={{ textAlign: "center" }}>
+              Join us for an unforgettable experience at [Event Name]! Secure
+              your spot now.
+            </p>
+            <p style={{ textAlign: "center" }}>
+              📍 [Event Location] || March 15, 2025 | 7:00 PM
+            </p>
+          </div>
+          <div className="ticket-container">
             {ticketData.image && (
-              <div >
+              <div>
                 <h3>Your Profile Photo:</h3>
                 <img
                   src={ticketData.image}
@@ -49,7 +59,7 @@ const About = () => {
             <p>Name: {ticketData.fullName}</p>
             <p>Email: {ticketData.email}</p>
             <h3>Your Barcode:</h3>
-            <svg id="barcode"></svg>
+            <svg id="barcode" style={{ width: "100%" }}></svg>
           </div>
         </div>
       </div>
