@@ -1,73 +1,122 @@
-Frontend Wizards, Here’s Your Stage 2 Task! :rocket:
-Welcome to Stage 2! :tada: In this stage, you’ll take your skills up a notch by building a Conference Ticket Generator.
-Study Material
-React Official Documentation: https://react.dev/
-React Forms and Validation: https://reactjs.org/docs/forms.html
-React State Management: https://react.dev/learn/managing-state
-React Event Handling: https://react.dev/learn/responding-to-events
-React Testing Library: https://testing-library.com/docs/react-testing-library/intro/
-Accessible Forms in React: https://www.digitala11y.com/react-forms-and-accessibility/
-CSS Layouts for Responsive Design: https://css-tricks.com/snippets/css/media-queries-for-standard-devices/
-:art: Figma File for UI Reference:
-Event Ticket Booking UI - Open Source Practice Project
-:rotating-light-red: Pixel perfect implementation is required :rotating-light-red:
-Task - Conference Ticket Generator
-You will build and host a Conference Ticket Generator using React or any React Framework (e.g., Next.js, etc.). The ticket generator will allow users to fill out a form with their details, perform validations on the inputs, and generate a ticket upon successful submission.
-Note: Only React or any React Framework is allowed.
-Core Features
-Form Elements:
-Full Name: Text input for the user's full name.
-Email Address: Email input field.
-Avatar Upload: Users should upload their avatar image and store it using Cloudinary or any image hosting service. The form should only accept and submit the image URL.
-Submit Button: Button to submit the form.
-Form Validation:
-Ensure all required fields are filled in before submission.
-The email should have a valid format.
-The avatar upload should accept Cloudinary URLs or any image link.
-Provide clear error messages near the respective field if validation fails.
-State Persistence
-The form should retain user inputs using IndexedDB or local storage so that the data is not lost on page refresh.
-Accessibility
-Ensure all form fields, hints, and error messages are screen-reader accessible.
-All elements must be focusable, with clear hover and focus states.
-Users must be able to navigate the form and submit it using only the keyboard.
-Ticket Generation
-On successful submission, generate and display a Conference Ticket containing:
-Full Name
-Email Address
-Avatar (displayed as an image from the provided URL)
-The ticket should only be generated if the form passes validation.
-Responsive Design
-Ensure the form and ticket layout adjust seamlessly across different screen sizes .
-Optimize for small screens with proper spacing and stacking.
-Acceptance Criteria
-Form Validation:
-Users must provide all required details before submission.
-The email should be in a valid format.
-Avatar uploads should be handled via Cloudinary or any external image URL submission.
-Display relevant error messages near the respective fields.
-State Persistence
-The form fields should persist user input using IndexedDB or local storage, ensuring data remains intact even if the page is refreshed.
-Ticket Generation:
-The generated ticket should display the user’s full name, email, and avatar.
-The ticket should only appear when all form validations pass successfully.
-Accessibility:
-All form elements and error messages must be fully accessible and announced by screen readers.
-The application must support complete keyboard navigation.
-Responsive Design:
-The form and generated ticket must be fully responsive and visually optimized for all device sizes.
-Ensure the ticket is clearly visible immediately after submission on both mobile and desktop screens.
-Code Quality:
-Write modular, well-structured, and readable code.
-Utilize appropriate React hooks (e.g., useState, useEffect) for state management and validation.
-Implement proper form element types and validation techniques.
-Submission Mode
-Host your application on a platform of your choice (e.g., Vercel, Netlify).
-Submit your task using the following submission form:
-https://forms.gle/ofBkt7nLuDQoALvz7
-In your submission, include:
-The URL to your hosted Conference Ticket Generator.
-The GitHub repository link containing your code.
-Submission Deadline
-The deadline for submission is 13th Feb 2025, 11:59 PM GMT +1.
-Late submissions will not be accepted.
+# Conference Ticket Generator
+
+The Conference Ticket Generator is a React-based application built with Vite that allows users to register for a conference ticket. Users can fill in their details, upload a profile image, and generate a ticket complete with a barcode. The ticket details are saved to local storage and displayed on a confirmation (About) page.
+
+## Features
+
+- **User Registration:**  
+  Collect attendee details including full name, email, and special requests.
+
+- **Image Upload:**  
+  Users can click an upload area to select a profile image. The selected image is previewed in the form and saved as part of the registration data.
+
+- **Barcode Generation:**  
+  A barcode is generated (using a library like `jsbarcode`) for each registered user and can be displayed on the confirmation page.
+
+- **Form Validation:**  
+  Uses `react-hook-form` to validate inputs in real time and provide immediate feedback.
+
+- **Routing:**  
+  Uses `react-router-dom` for navigating between pages (e.g., registration and confirmation).
+
+- **State Persistence:**  
+  Form data is saved to `localStorage`, ensuring that user input persists across page refreshes.
+
+- **Responsive & Accessible:**  
+  Designed to work across different devices and to be accessible to all users.
+
+## Technologies Used
+
+- **React**  
+- **Vite**  
+- **React Router DOM**  
+- **React Hook Form**  
+- **JsBarcode** (or a similar barcode generation library)  
+- **React Icons**  
+- **CSS**
+
+## Project Structure
+
+```
+ticket-generator/
+├── public/
+│   └── index.html
+├── src/
+│   ├── assets/            // Images, icons, etc.
+│   ├── components/
+│   │   ├── Navigation.jsx
+│   │   ├── ProgressSlider.jsx
+│   │   └── TicketGenerator.jsx
+│   ├── pages/
+│   │   └── About.jsx
+│   ├── App.jsx
+│   ├── main.jsx
+│   └── history.js         // (Optional) Custom history for programmatic navigation
+├── package.json
+└── README.md
+```
+
+## Installation
+
+1. **Clone the Repository**
+
+   ```bash
+https://github.com/DevGracies/Conference-Ticket-Generator.git
+   cd ticket-generator
+   ```
+
+2. **Install Dependencies**
+
+   ```bash
+   npm install
+   ```
+
+3. **Run the Application**
+
+   ```bash
+   npm run dev
+   ```
+
+   Your app will be available at `http://localhost:3000` (or the port specified by Vite).
+
+## Usage
+
+1. **Registration:**
+
+   - Open the application and fill in your name, email, and any special requests.
+   - Click the image upload area to select and preview a profile image.
+   - Click the **"Get My Free Ticket"** button to submit your registration.
+
+2. **Ticket Confirmation:**
+
+   - After form submission, you will be navigated to the About page.
+   - The About page displays your registration details, including your profile image and a generated barcode.
+
+## Barcode Generation
+
+If you wish to generate and display a barcode, consider using the [`jsbarcode`](https://www.npmjs.com/package/jsbarcode) library. You can initialize the barcode in the About page by reading the stored registration data from localStorage and applying the barcode settings.
+
+## Troubleshooting
+
+- **Form Input Not Working:**  
+  Ensure that you're not resetting the form state on every render. The reset should only run once on component mount.
+
+- **Navigation Issues:**  
+  Verify that your routes are correctly wrapped in a `BrowserRouter` and that your navigation actions (using `useNavigate`) are placed within the form submission handler.
+
+- **Image Not Displaying:**  
+  Check that the file upload handler correctly reads the file as a Base64 string and that the "image" field is registered in the form data.
+
+- **Console Errors:**  
+  Always check your browser console for any error messages that might indicate missing dependencies or incorrect import paths.
+
+## License
+
+This project is licensed under the [MIT License](LICENSE).
+
+## Acknowledgements
+
+- **React Hook Form:** Thanks for making form handling in React a breeze!
+- **React Router DOM:** For robust and flexible routing.
+- **Vite:** For a fast and modern development environment.
+- **Frontend Wizards:** Inspiration from the Stage 2 challenge.

@@ -1,7 +1,6 @@
 import { useEffect, useState } from "react";
 import JsBarcode from "jsbarcode";
 import ProgressSlider from "./ProgressSlider";
-import { FaCloudUploadAlt } from "react-icons/fa";
 
 const About = () => {
     const [ticketData, setTicketData] = useState({});
@@ -37,7 +36,7 @@ const About = () => {
         <div className="container">
           <div>
             {ticketData.image && (
-              <div>
+              <div >
                 <h3>Your Profile Photo:</h3>
                 <img
                   src={ticketData.image}
