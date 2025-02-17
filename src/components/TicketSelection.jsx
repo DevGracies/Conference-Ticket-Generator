@@ -1,6 +1,7 @@
 import { useState } from "react";
 import "../App.css";
 import ProgressSlider from "./ProgressSlider";
+import { useNavigate } from "react-router-dom";
 
 function TiccketSelection() {
   const [selectedTicket, setSelectedTicket] = useState(null);
@@ -8,6 +9,7 @@ function TiccketSelection() {
 
   const [page, setPage] = useState(1);
   const totalPages = 3;
+  const navigate = useNavigate();
 
   return (
     <div className="ticket">
@@ -73,7 +75,13 @@ function TiccketSelection() {
               />
             </div>
             <div className="buttons">
-              <button className="submit-button next"> Next </button>
+              <button
+                className="submit-button next"
+                onClick={() => navigate("/ticket")}
+              >
+                {" "}
+                Next{" "}
+              </button>
               <button className="submit-button">Cancel</button>
             </div>
           </div>

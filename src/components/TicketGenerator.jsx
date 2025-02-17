@@ -34,7 +34,7 @@ const TicketGenerator = () => {
     console.log("Form submitted with data:", data);
     // Save updated data to localStorage
     localStorage.setItem("ticketData", JSON.stringify(data));
-    
+
     // Optionally, wait a moment to ensure localStorage is updated
     setTimeout(() => {
       navigate("/about");
@@ -111,7 +111,9 @@ const TicketGenerator = () => {
                 <input
                   id="fullName"
                   type="text"
-                  {...register("fullName", { required: "Full name is required" })}
+                  {...register("fullName", {
+                    required: "Full name is required",
+                  })}
                   aria-invalid={errors.fullName ? "true" : "false"}
                 />
                 {errors.fullName && (
@@ -151,10 +153,18 @@ const TicketGenerator = () => {
                 <textarea id="request" {...register("request")} />
               </div>
               <div className="buttons">
-                <button type="button" className="submit-button next">
+                <button
+                  type="button"
+                  className="submit-button next"
+                  onClick={() => navigate("/")}
+                >
                   Back
                 </button>
-                <button type="submit" className="submit-button">
+                <button
+                  type="submit"
+                  className="submit-button"
+                  onClick={() => navigate("/about")}
+                >
                   Get My Free Ticket
                 </button>
               </div>
