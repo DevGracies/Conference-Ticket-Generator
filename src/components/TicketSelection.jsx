@@ -34,7 +34,7 @@ function TiccketSelection() {
               📍 [Event Location] || March 15, 2025 | 7:00 PM
             </p>
           </div>
-          <div className="ticket-container">
+          <div className="ticket-container" id="ticket-container">
             <h4>Select Ticket Type:</h4>
             <div className="ticket-options">
               <div
@@ -57,9 +57,9 @@ function TiccketSelection() {
               </div>
               <div
                 className={`ticket-option ${
-                  selectedTicket === "vip" ? "active" : ""
+                  selectedTicket === "vvip" ? "active" : ""
                 }`}
-                onClick={() => setSelectedTicket("vip")}
+                onClick={() => setSelectedTicket("vvip")}
               >
                 $150 <br /> <small>VVIP Access</small>
                 <p>20/52</p>

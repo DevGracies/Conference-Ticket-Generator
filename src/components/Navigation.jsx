@@ -48,9 +48,11 @@ const Navigation = () => {
           <Link to="/about">About Project</Link>
         </li>
       </ul>
-      <button style={{ display: "flex", alignItems: "center" }}>
-        My ticket <FaArrowRight style={{ width: "20px" }} />
-      </button>
+      <a href="#ticket-container" style={{textDecoration: "none"}}>
+        <button style={{ display: "flex", alignItems: "center" }}>
+          My ticket <FaArrowRight style={{ width: "20px" }} />
+        </button>
+      </a>
     </div>
   );
 };

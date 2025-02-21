@@ -135,17 +135,24 @@ ul .mobile{
   
   .ticket-option {
     flex: 1;
-    background: #197686;
+    background:transparent;
     padding: 10px;
     text-align: center;
     border-radius: 5px;
     margin: 20px;
     cursor: pointer;
     transition: 0.3s;
+    border: 2px solid #197686;
   }
   
   .ticket-option:hover {
     background:  #197686;
+  }
+  /* .vip{
+    background:  #197686;
+  } */
+  .active{
+     background:  #197686;
   }
   
   .ticket-quantity input {
